@@ -1,41 +1,45 @@
 <div align="center">
 
+[ 🇮🇷 **فارسی** ](README.md) · [ 🇬🇧 English ](README_EN.md)
+
+<br/>
+
 <img src="docs/banner.svg?v=3" alt="re-flow — Flow / تک‌نقطه" width="100%">
 
 <br/>
 
 [![GitHub Release](https://img.shields.io/github/v/release/re-code-sh/re-flow?style=for-the-badge&logo=github&color=EFA55C&logoColor=white)](https://github.com/re-code-sh/re-flow/releases/latest)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/re-code-sh/re-flow/build.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&label=CI)](https://github.com/re-code-sh/re-flow/actions)
-[![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/re-code-sh/re-flow/releases/latest)
-[![Flutter](https://img.shields.io/badge/Flutter-3.35-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
-[![Locales](https://img.shields.io/badge/Locale-Persian%20%7C%20English-EFA55C?style=for-the-badge)](#-key-features)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-4ade80?style=for-the-badge)](#-privacy--local-data)
+[![Platform](https://img.shields.io/badge/پلتفرم-اندروید-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/re-code-sh/re-flow/releases/latest)
+[![Flutter](https://img.shields.io/badge/فلاتر-3.35-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Locales](https://img.shields.io/badge/زبان-فارسی%20%7C%20English-EFA55C?style=for-the-badge)](#-ویژگی‌های-کلیدی)
+[![Privacy](https://img.shields.io/badge/حریم_خصوصی-۱۰۰٪_آفلاین-4ade80?style=for-the-badge)](#-حریم-خصوصی-و-داده‌های-محلی)
 
-### **re-flow (Flow / تک‌نقطه)**
-*A liquid-glass daily focus protocol, habit engine, and self-calibration OS.*
+### **re-flow (تک‌نقطه / Flow)**
+*سیستم مدیریت تمرکز، ساخت عادت و خودتنظیم‌گری روزانه با طراحی شیشه‌ای Liquid Glass*
 
-[ **⬇️ Download Latest APK** ](https://github.com/re-code-sh/re-flow/releases/latest) · [Features](#-key-features) · [Accent Palettes](#-liquid-glass-accent-palettes) · [Build Instructions](#%EF%B8%8F-build-from-source)
+[ **⬇️ دانلود آخرین نسخه APK** ](https://github.com/re-code-sh/re-flow/releases/latest) · [ویژگی‌ها](#-ویژگی‌های-کلیدی) · [پالت‌های رنگی](#-پالت‌های-رنگی-liquid-glass) · [راهنمای بیلد](#%EF%B8%8F-بیلد-از-روی-سورس‌کد)
 
 </div>
 
 ---
 
-## ⚡ Overview
+## ⚡ معرفی کلی
 
-**re-flow** (**Flow / تک‌نقطه**) is an open-source, 100% offline daily focus app built with Flutter. Built around a dark "Liquid Glass" theme, it eliminates streak anxiety, remote tracking, and clutter — centering your daily energy around one primary goal (**The Boulder / تخته‌سنگ**).
+**re-flow** (**تک‌نقطه / Flow**) یک اپلیکیشن متن‌باز و کاملاً آفلاین برای مدیریت تمرکز و عادات روزانه است که با فلاتر ساخته شده است. این برنامه با الهام از اصول روان‌شناسی رفتاری، استرس ناشی از زنجیره‌های پیوسته (Streaks)، ردیابی داده‌ها و شلوغی‌های غیرضروری را حذف کرده و تمرکز انرژی روزانه را حول یک هدف اصلی (**تخته‌سنگ / The Boulder**) قرار می‌دهد.
 
 > [!NOTE]
-> This repository is an enhanced, internationalized fork of [Mahdi-mortazavi/flow](https://github.com/Mahdi-mortazavi/flow) with full English/Persian LTR/RTL support, customizable accent palettes, dynamic OS launcher labels, active-days task scaling, and automated CI/CD releases.
+> این مخزن نسخهٔ توسعه‌یافته و بین‌المللی از [Mahdi-mortazavi/flow](https://github.com/Mahdi-mortazavi/flow) است که با پشتیبانی کامل از زبان‌های فارسی و انگلیسی (راست‌به‌چپ و چپ‌به‌راست)، پالت‌های رنگی پویا، هشدارهای دقیق زمان‌بندی‌شده، جریان تمرکز تک‌لمسی، افزایش ظرفیت تسک‌ها و پایپ‌لاین بیلد و انتشار خودکار CI/CD ارتقا یافته است.
 
 ---
 
-## 🎨 Liquid Glass Accent Palettes
+## 🎨 پالت‌های رنگی Liquid Glass
 
-Instantly switch accent colors across buttons, progress rings, highlights, and glass glows in real-time — no app restart needed.
+امکان تغییر آنی پالت رنگی دکمه‌ها، حلقه‌های پیشرفت، هایلایت‌ها و درخشش‌های شیشه‌ای بدون نیاز به بستن و باز کردن مجدد برنامه.
 
-| Accent Palette | Preview Badge | Hex Code | Persian Name | English Name |
+| پالت رنگی | پیش‌نمایش | کد رنگ | نام فارسی | نام انگلیسی |
 |---|---|---|---|---|
-| **Ember** *(Default)* | ![](https://img.shields.io/badge/-%20-EFA55C) | `#EFA55C` | کهربایی | Ember |
+| **Ember** *(پیش‌فرض)* | ![](https://img.shields.io/badge/-%20-EFA55C) | `#EFA55C` | کهربایی | Ember |
 | **Alpine Pine** | ![](https://img.shields.io/badge/-%20-4EAF7B) | `#4EAF7B` | سوزن کاج | Alpine Pine |
 | **Abyssal Indigo** | ![](https://img.shields.io/badge/-%20-5486EB) | `#5486EB` | نیلی ژرف | Abyssal Indigo |
 | **Smoked Mulberry** | ![](https://img.shields.io/badge/-%20-D65B6E) | `#D65B6E` | شاتوتی | Smoked Mulberry |
@@ -44,96 +48,96 @@ Instantly switch accent colors across buttons, progress rings, highlights, and g
 
 ---
 
-## 🚀 Key Features
+## 🚀 ویژگی‌های کلیدی
 
 <details open>
-<summary><b>🌐 Full Dual-Language & Native Locale Engine</b></summary>
+<summary><b>🌐 پشتیبانی دو زبانه و هماهنگی با زبان سیستم</b></summary>
 
-- **Instant LTR / RTL Switching**: Seamless toggle between English and Persian with full typography and UI alignment.
-- **Dynamic OS Launcher Title**: Launcher icon title automatically switches between **Flow** and **تک‌نقطه** depending on system/app locale.
-- **Localized Timer & Numbers**: Clock displays English digits (`24:59`) in English mode and Persian numerals (`۲۴:۵۹`) in Persian mode.
-- **Localized Notifications**: Morning planning nudges, evening review reminders, task alarms, and habit cues broadcast in your active language.
+- **سوییچ آنی میان فارسی و انگلیسی**: تغییر لحظه‌ای چیدمان (RTL / LTR) همراه با هماهنگی کامل تایپوگرافی و المان‌های بصری.
+- **تغییر پویای نام برنامه در سیستم‌عامل**: تغییر خودکار عنوان آیکون برنامه در لانچر اندروید بین **تک‌نقطه** و **Flow** متناسب با زبان انتخابی.
+- **قالب‌بندی هوشمند اعداد**: نمایش ارقام فارسی (`۲۴:۵۹`) در زبان فارسی و ارقام انگلیسی (`24:59`) در زبان انگلیسی.
+- **اعلانات محلی دو زبانه**: یادآورهای صبحگاهی، مرور شبانه، هشدارهای پایان تمرکز و سرنخ‌های عادات کاملاً به زبان فعال برنامه.
 </details>
 
 <details open>
-<summary><b>⏰ Exact Scheduled Task Reminders & Alarms (P0)</b></summary>
+<summary><b>⏰ یادآورها و هشدارهای دقیق زمان‌بندی‌شده (Exact Alarms)</b></summary>
 
-- **Exact Background Alarms**: Set exact reminder times on any task with an iOS-style wheel time picker.
-- **Direct Notification Deep-Linking**: Tapping the notification or its "Focus" action launches the app directly into Focus mode pre-loaded with that task.
-- **Smart Lifecycle Management**: Notifications automatically cancel or reschedule if a task is marked done, edited, or deleted.
-- **Visual Reminder Badges**: Task cards display active reminder times directly in the Today view.
+- **هشدارهای پس‌زمینه دقیق**: امکان تعیین زمان یادآور برای هر کار با استفاده از انتخابگر چرخشی شیشه‌ای به سبک iOS.
+- **دیپ‌لینکینگ مستقیم از اعلان به تایمر**: لمس نوتیفیکیشن یا دکمهٔ «تمرکز» مستقیماً برنامه را باز کرده و وارد صفحه تمرکز همان تسک می‌شود.
+- **مدیریت هوشمند چرخه یادآورها**: لغو یا به‌روزرسانی خودکار اعلان با ویرایش، حذف یا تکمیل شدن کار.
+- **نشانگر ساعت یادآور**: نمایش زمان یادآورهای فعال بر روی کارت هر تسک در صفحه امروز.
 </details>
 
 <details open>
-<summary><b>⚡ Direct Task-to-Focus Workflow & Auto-Completion</b></summary>
+<summary><b>⚡ جریان تمرکز تک‌لمسی و تکمیل خودکار (Task-to-Focus)</b></summary>
 
-- **One-Tap Focus Launch**: Launch a focus session directly from any task card (including The Boulder) without extra menus.
-- **In-Session Task Binding**: Active task title is prominently displayed inside the responsive focus ring with your chosen accent color.
-- **Session Completion Flow**: Seamless post-timer prompt allowing you to mark the task completed or log focus time only.
+- **شروع فوری تمرکز**: شروع جلسه تمرکز با یک لمس مستقیم روی هر تسک (از جمله تخته‌سنگ) بدون منوهای اضافه.
+- **اتصال تسک به حلقه تمرکز**: نمایش عنوان کار انتخابی در داخل حلقه پیشرفت با رنگ پالت فعال کاربر.
+- **شیت هوشمند پایان تایمر**: امکان ثبت تکمیل تسک یا صرفاً ذخیرهٔ زمان تمرکز پس از اتمام زمان‌سنج.
 </details>
 
 <details open>
-<summary><b>📱 Fluid Portrait Responsiveness & Overflow Protection</b></summary>
+<summary><b>📱 ریسپانسیو روان و جلوگیری از سرریزهای پرتره (Portrait Layout)</b></summary>
 
-- **Dynamic LayoutBuilder Ring**: Circular timer ring and typography adapt smoothly ($180\text{dp} - 284\text{dp}$) across all vertical screen heights.
-- **Zero RenderFlex Overflows**: Tested and verified across multiple aspect ratios (16:9, 19.5:9, 20:9, 21:9) and accessibility text scales ($1.3\times$).
-- **Keyboard-Proof Bottom Sheets**: All modal sheets and wizards smoothly scroll when the soft keyboard is open.
-- **Smart Multi-Line Truncation**: Ellipsis and wrapping for long task titles, habit cues, and category tags.
+- **مقیاس‌بندی داینامیک با LayoutBuilder**: تنظیم خودکار قطر حلقه تایمر ($180\text{dp} - 284\text{dp}$) و فواصل عمودی در ابعاد مختلف صفحه.
+- **رفع کامل خطاهای RenderFlex Overflow**: اعتبارسنجی روی نسبت‌های تصویر مختلف (16:9، 19.5:9، 20:9، 21:9) و مقیاس متن بزرگ ($1.3\times$).
+- **شیت‌های ضدتداخل با کیبورد**: اسکرول نرم تمامی شیت‌ها و مودال‌ها هنگام باز شدن کیبورد مجازی.
+- **برش و شکستن هوشمند متون طولانی**: جلوگیری از تداخل متن‌ها در عناوین طولانی و برچسب‌های دسته‌بندی.
 </details>
 
 <details open>
-<summary><b>🧭 3-Tab Liquid Glass Navigation & Floating Brain Vault</b></summary>
+<summary><b>🧭 نوار ناوبری ۳ تبی و دکمهٔ شناور مخزن ذهن (Brain Vault)</b></summary>
 
-- **3-Tab Navigation Bar**: Floating glass bar separating **Tasks (کارها)**, **Habits (عادت‌ها)**, and **Leisure (فراغت)**.
-- **Floating Brain Vault Pill**: Ergonomically elevated pill button above the bottom bar for rapid 2-second thought dumping without visual clutter.
+- **نوار ناوبری شیشه‌ای**: تفکیک ۳ بخش مجزای **کارها (Tasks)**، **عادت‌ها (Habits)** و **فراغت (Leisure)**.
+- **دکمهٔ شناور کپسولی مخزن ذهن**: قرارگیری ارگونومیک در بالای نوار ناوبری با تراز دقیق لبه‌ها برای ثبت سریع افکار مزاحم در ۲ ثانیه.
 </details>
 
 <details open>
-<summary><b>📈 Active Days Task Capacity Progression</b></summary>
+<summary><b>📈 افزایش تدریجی ظرفیت تسک‌ها بر اساس روزهای فعال</b></summary>
 
-- **Non-Punitive Scaling**: Task slots unlock automatically based on total completed active days in local SQLite without streak-reset penalties:
-  - **0–14 Days**: 3 tasks max (1 Boulder + 2 secondary)
-  - **15–29 Days**: 4 tasks max (1 Boulder + 2 secondary + 1 Pebble)
-  - **30+ Days**: 5 tasks max cap (1 Boulder + 2 secondary + 2 Pebbles)
-- **Pebble Slots (سنگریزه)**: Slots 4 & 5 designated for quick-win, low-energy tasks (<15 minutes).
+- **توسعه ظرفیت بدون تنبیه**: باز شدن خودکار جایگاه‌های تسک بر اساس مجموع روزهای فعال ثبت‌شده در SQLite بدون جریمه صفر شدن زنجیره:
+  - **۰ تا ۱۴ روز**: حداکثر ۳ کار (۱ تخته‌سنگ + ۲ کار فرعی)
+  - **۱۵ تا ۲۹ روز**: حداکثر ۴ کار (۱ تخته‌سنگ + ۲ کار فرعی + ۱ سنگریزه)
+  - **۳۰ روز به بالا**: سقف ۵ کار (۱ تخته‌سنگ + ۲ کار فرعی + ۲ سنگریزه)
+- **سنگریزه‌ها (Pebble Slots)**: کارهای سریع و کم‌انرژی با زمان کمتر از ۱۵ دقیقه.
 </details>
 
 <details open>
-<summary><b>🧠 Core Behavioral Psychology & Habit Protocol</b></summary>
+<summary><b>🧠 اصول روان‌شناسی رفتاری و پروتکل عادات</b></summary>
 
-- **🪨 The Boulder**: Lock in 1 primary goal each morning. Secondary tasks queue behind it.
-- **🎯 Prediction & Optimism Gap**: Estimate morning completion probability vs night outcome to track self-overestimation.
-- **🏖️ Guilt-Free Play (Leisure)**: Dedicated leisure timer and block as the antidote to Parkinson's Law.
-- **🌱 Habit Anchor & Friction**: Anchor routine cues and set friction pauses for bad habits. Measures *Recovery Rate* instead of fragile streaks.
-- **🌙 60-Second Evening Review**: Nightly check-in + 3-Why root cause analysis when The Boulder fails.
+- **🪨 تخته‌سنگ (The Boulder)**: قفل کردن ۱ هدف اصلی در هر صبح و اولویت‌بندی کارهای فرعی در پشت آن.
+- **🎯 گپ خوش‌بینی (Optimism Gap)**: مقایسه احتمال تخمینی صبح با نتیجه واقعی شب برای پایش خودبزرگ‌بینی در تخمین زمان.
+- **🏖️ بازی بدون عذاب وجدان (Guilt-Free Play)**: اختصاص بلاک‌های تفریح مشخص به عنوان پادزهر قانون پارکینسون.
+- **🌱 لنگر عادت و اصطکاک رفتاری**: ایجاد نشانه لنگر برای عادات مثبت و مکث اصطکاکی برای عادات مخرب، با سنجش *نرخ بازیابی (Recovery Rate)* به جای خطوط زنجیره‌ای شکننده.
+- **🌙 مرور ۶۰ ثانیه‌ای شبانه**: چک‌این شبانه و تحلیل ریشه‌ای ۳-چرا (3-Why) در صورت ناتمام ماندن تخته‌سنگ.
 </details>
 
 ---
 
-## 📱 Interface Showcase
+## 📱 تصاویر محیط برنامه
 
 <div align="center">
 <table>
 <tr>
-<td align="center" width="25%"><img src="docs/screenshots/today.png" alt="Today Screen" width="200"/><br/><sub><b>Today</b></sub></td>
-<td align="center" width="25%"><img src="docs/screenshots/focus.png" alt="Focus Timer" width="200"/><br/><sub><b>Focus</b></sub></td>
-<td align="center" width="25%"><img src="docs/screenshots/interrupt.png" alt="Interrupts" width="200"/><br/><sub><b>Interrupts</b></sub></td>
-<td align="center" width="25%"><img src="docs/screenshots/mirror.png" alt="Stats Mirror" width="200"/><br/><sub><b>Stats Mirror</b></sub></td>
+<td align="center" width="25%"><img src="docs/screenshots/today.png" alt="صفحه امروز" width="200"/><br/><sub><b>برنامه امروز</b></sub></td>
+<td align="center" width="25%"><img src="docs/screenshots/focus.png" alt="تایمر تمرکز" width="200"/><br/><sub><b>تایمر تمرکز</b></sub></td>
+<td align="center" width="25%"><img src="docs/screenshots/interrupt.png" alt="افکار مزاحم" width="200"/><br/><sub><b>افکار مزاحم</b></sub></td>
+<td align="center" width="25%"><img src="docs/screenshots/mirror.png" alt="آینه آمار" width="200"/><br/><sub><b>آینه آمار</b></sub></td>
 </tr>
 </table>
 </div>
 
 ---
 
-## 🔒 Privacy & Local Data
+## 🔒 حریم خصوصی و داده‌های محلی
 
-- **100% Offline**: Zero remote telemetry, zero analytics tracking, no server dependency.
-- **Local SQLite Database**: All plans, focus sessions, and habit logs stay strictly on device.
-- **Backup & Restore**: JSON export/import for easy local data ownership and migrations.
+- **۱۰۰٪ آفلاین**: بدون ارسال داده به سرور، بدون ردیابی تحلیلی، بدون نیاز به اینترنت.
+- **دیتابیس محلی SQLite**: تمامی برنامه‌ها، جلسات تمرکز و عادات صرفاً روی حافظهٔ دستگاه شما باقی می‌مانند.
+- **پشتیبان‌گیری و بازیابی**: خروجی و ورودی آسان فایل JSON برای مالکیت کامل و انتقال امن داده‌ها.
 
 ---
 
-## 🛠️ Build from Source
+## 🛠️ بیلد از روی سورس‌کد
 
 ```bash
 git clone https://github.com/re-code-sh/re-flow.git
@@ -142,23 +146,23 @@ flutter pub get
 flutter run
 ```
 
-### 🧪 Code Hygiene & Verification
+### 🧪 بهداشت کد و تست‌های خودکار
 
 ```bash
-# Verify formatting
+# بررسی فرمت‌بندی
 dart format --output=none --set-exit-if-changed lib test
 
-# Run static analysis
+# تحلیل استاتیک
 flutter analyze
 
-# Run unit & widget test suite (86 tests)
+# اجرای کل تست‌های خودکار (۸۸ تست)
 flutter test
 ```
 
 ---
 
-## 📜 Credits & License
+## 📜 اعتبار و لایسنس
 
-- Original project by [Mahdi-mortazavi/flow](https://github.com/Mahdi-mortazavi/flow).
-- Maintained & upgraded by [re-code-sh/re-flow](https://github.com/re-code-sh/re-flow).
-- Released under the [MIT License](LICENSE).
+- پروژه اصلی توسعه‌داده‌شده توسط [Mahdi-mortazavi/flow](https://github.com/Mahdi-mortazavi/flow).
+- توسعه، ارتقا و نگهداری توسط [re-code-sh/re-flow](https://github.com/re-code-sh/re-flow).
+- منتشرشده تحت [مجوز MIT](LICENSE).
