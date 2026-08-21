@@ -79,8 +79,8 @@ def main() -> int:
     readme = Path(args.readme)
     text = readme.read_text(encoding="utf-8")
     if START not in text or END not in text:
-        print(f"::error::{args.readme} has no RELEASE:START/END markers — nothing to sync.")
-        return 1
+        print(f"::notice::{args.readme} has no RELEASE:START/END markers — skipping automatic download block update.")
+        return 0
 
     block = build_block(args.repo, args.tag, Path(args.dist))
     updated = re.sub(
