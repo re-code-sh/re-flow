@@ -158,7 +158,7 @@ flutter pub get && flutter run
 
 ```bash
 flutter analyze   # 0 warnings
-flutter test      # 86 tests
+flutter test      # 89 tests
 ```
 
 **پشته:** Flutter 3.35 · Riverpod 3 · SQLite · تقویمِ جلالی · وزیرمتن
@@ -171,7 +171,7 @@ flutter test      # 86 tests
 
 ## 🤝 تشکر
 
-از **[@re-code-sh](https://github.com/re-code-sh)** برای دوزبانه‌سازیِ کامل، یادآورهای دقیق، پالت‌های رنگ و ۸۶ تستِ خودکار ([#12](https://github.com/Mahdi-mortazavi/flow/pull/12)). 🙏
+از **[@re-code-sh](https://github.com/re-code-sh)** برای دوزبانه‌سازیِ کامل، یادآورهای دقیق، پالت‌های رنگ، محاسبه دقیق زمان کار عمیق و ۸۹ تستِ خودکار ([#12](https://github.com/Mahdi-mortazavi/flow/pull/12)، [#14](https://github.com/Mahdi-mortazavi/flow/pull/14)). 🙏
 
 مشارکت جدید؟ Issue باز کن یا PR بفرست.
 
@@ -280,7 +280,7 @@ flutter pub get && flutter run
 
 ```bash
 flutter analyze   # 0 warnings
-flutter test      # 86 tests
+flutter test      # 89 tests
 ```
 
 **Stack:** Flutter 3.35 · Riverpod 3 · SQLite · Jalali calendar · Vazirmatn
@@ -288,6 +288,12 @@ flutter test      # 86 tests
 **Releasing:** bump `version:` in `pubspec.yaml` — the pipeline tags the commit, builds four signed APKs, verifies each one, writes the notes from the commit history, publishes, and updates the download block above.
 
 </details>
+
+---
+
+## 🤝 Credits
+
+Thanks to **[@re-code-sh](https://github.com/re-code-sh)** for complete dual-language support, exact task alarms, customizable accent palettes, pure deep-work focus time tracking, and 89 automated tests ([#12](https://github.com/Mahdi-mortazavi/flow/pull/12), [#14](https://github.com/Mahdi-mortazavi/flow/pull/14)). 🙏
 
 ---
 
@@ -300,3 +306,4 @@ flutter test      # 86 tests
 <sub>If this is useful to you, a ⭐ is the biggest encouragement.</sub>
 
 </div>
+
