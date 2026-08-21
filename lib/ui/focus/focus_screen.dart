@@ -73,9 +73,22 @@ class FocusScreen extends ConsumerStatefulWidget {
 
   static Route<void> route() => PageRouteBuilder<void>(
     pageBuilder: (_, __, ___) => const FocusScreen(),
-    transitionsBuilder: (_, anim, __, child) =>
-        FadeTransition(opacity: anim, child: child),
-    transitionDuration: const Duration(milliseconds: 500),
+    transitionsBuilder: (_, anim, __, child) {
+      final curved = CurvedAnimation(
+        parent: anim,
+        curve: Curves.easeOutCubic,
+        reverseCurve: Curves.easeInCubic,
+      );
+      return FadeTransition(
+        opacity: curved,
+        child: ScaleTransition(
+          scale: Tween<double>(begin: 0.95, end: 1.0).animate(curved),
+          child: child,
+        ),
+      );
+    },
+    transitionDuration: const Duration(milliseconds: 320),
+    reverseTransitionDuration: const Duration(milliseconds: 250),
   );
 
   @override
@@ -89,8 +102,11 @@ class _FocusScreenState extends ConsumerState<FocusScreen> {
   @override
   void initState() {
     super.initState();
-    Notifications.instance.exactAlarmsAllowed().then((ok) {
-      if (mounted && !ok) setState(() => _exactAlarms = false);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      Notifications.instance.exactAlarmsAllowed().then((ok) {
+        if (mounted && !ok) setState(() => _exactAlarms = false);
+      });
     });
   }
 
