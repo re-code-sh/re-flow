@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart'
@@ -443,8 +444,9 @@ class GlassField extends StatelessWidget {
   }
 }
 
-/// Small top toast, like the web version. Pass [actionLabel]/[onAction] for
-/// an inline action (e.g. «برگردان» to undo a delete).
+/// Small top toast, like the web version. Enters smoothly from top (-28dp -> 0dp)
+/// and exits by falling downward (0dp -> +28dp) to emphasize the falling motion.
+/// Pass [actionLabel]/[onAction] for an inline action (e.g. «برگردان» to undo a delete).
 void showToast(
   BuildContext context,
   String message, {
@@ -455,99 +457,201 @@ void showToast(
   final dir = textDirection ?? Directionality.of(context);
   final overlay = Overlay.of(context, rootOverlay: true);
   late final OverlayEntry entry;
-  var handled = false;
   entry = OverlayEntry(
-    builder: (ctx) => Positioned(
-      top: MediaQuery.paddingOf(ctx).top + 14,
+    builder: (ctx) => _ToastOverlayWidget(
+      message: message,
+      textDirection: dir,
+      actionLabel: actionLabel,
+      onAction: onAction,
+      displayDuration: Duration(
+        milliseconds: actionLabel == null ? 2200 : 5000,
+      ),
+      onDismissed: () {
+        if (entry.mounted) {
+          entry.remove();
+        }
+      },
+    ),
+  );
+  overlay.insert(entry);
+}
+
+class _ToastOverlayWidget extends StatefulWidget {
+  final String message;
+  final TextDirection textDirection;
+  final String? actionLabel;
+  final VoidCallback? onAction;
+  final Duration displayDuration;
+  final VoidCallback onDismissed;
+
+  const _ToastOverlayWidget({
+    required this.message,
+    required this.textDirection,
+    this.actionLabel,
+    this.onAction,
+    required this.displayDuration,
+    required this.onDismissed,
+  });
+
+  @override
+  State<_ToastOverlayWidget> createState() => _ToastOverlayWidgetState();
+}
+
+class _ToastOverlayWidgetState extends State<_ToastOverlayWidget>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _animation;
+  Timer? _dismissTimer;
+  var _isExiting = false;
+  var _handled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 380),
+    );
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeOutCubic,
+      reverseCurve: Curves.easeInCubic,
+    );
+
+    _controller
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.dismissed && _isExiting) {
+          widget.onDismissed();
+        }
+      })
+      ..forward();
+
+    _dismissTimer = Timer(widget.displayDuration, _startExit);
+  }
+
+  @override
+  void dispose() {
+    _dismissTimer?.cancel();
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _startExit() {
+    if (!mounted || _isExiting) return;
+    _dismissTimer?.cancel();
+    setState(() => _isExiting = true);
+    _controller.reverse();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final disableAnim = MediaQuery.maybeDisableAnimationsOf(context) ?? false;
+    if (disableAnim) {
+      return Positioned(
+        top: MediaQuery.paddingOf(context).top + 14,
+        left: 0,
+        right: 0,
+        child: Center(
+          child: Material(color: Colors.transparent, child: _buildBody()),
+        ),
+      );
+    }
+
+    return Positioned(
+      top: MediaQuery.paddingOf(context).top + 14,
       left: 0,
       right: 0,
       child: Center(
         child: Material(
           color: Colors.transparent,
-          child: TweenAnimationBuilder<double>(
-            tween: Tween(begin: 0, end: 1),
-            duration: const Duration(milliseconds: 400),
-            curve: Tone.easeOut,
-            builder: (_, v, child) => Opacity(
-              opacity: v,
-              child: Transform.translate(
-                offset: Offset(0, (1 - v) * -24),
-                child: child,
-              ),
-            ),
-            child: Container(
-              padding: EdgeInsetsDirectional.only(
-                start: 20,
-                end: actionLabel == null ? 20 : 8,
-                top: actionLabel == null ? 12 : 7,
-                bottom: actionLabel == null ? 12 : 7,
-              ),
-              decoration: BoxDecoration(
-                color: const Color(0xFF1C1C21),
-                borderRadius: BorderRadius.circular(999),
-                border: Border.all(color: Tone.line),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: .5),
-                    blurRadius: 30,
-                    offset: const Offset(0, 10),
-                  ),
-                ],
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                textDirection: dir,
-                children: [
-                  Text(
-                    message,
-                    textDirection: dir,
-                    style: const TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: Tone.ink,
-                    ),
-                  ),
-                  if (actionLabel != null) ...[
-                    const SizedBox(width: 10),
-                    Pressable(
-                      onTap: () {
-                        if (handled) return;
-                        handled = true;
-                        if (entry.mounted) entry.remove();
-                        onAction?.call();
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Tone.emberSoft,
-                          borderRadius: BorderRadius.circular(999),
-                        ),
-                        child: Text(
-                          actionLabel,
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: Tone.ember,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            ),
+          child: AnimatedBuilder(
+            animation: _animation,
+            builder: (context, child) {
+              final val = _animation.value;
+              final offsetY = _isExiting ? (1 - val) * 28.0 : (1 - val) * -28.0;
+              final opacity = val.clamp(0.0, 1.0);
+
+              return Opacity(
+                opacity: opacity,
+                child: Transform.translate(
+                  offset: Offset(0, offsetY),
+                  child: child,
+                ),
+              );
+            },
+            child: _buildBody(),
           ),
         ),
       ),
-    ),
-  );
-  overlay.insert(entry);
-  Future.delayed(Duration(milliseconds: actionLabel == null ? 2200 : 5000), () {
-    if (entry.mounted) entry.remove();
-  });
+    );
+  }
+
+  Widget _buildBody() {
+    return Container(
+      padding: EdgeInsetsDirectional.only(
+        start: 20,
+        end: widget.actionLabel == null ? 20 : 8,
+        top: widget.actionLabel == null ? 12 : 7,
+        bottom: widget.actionLabel == null ? 12 : 7,
+      ),
+      decoration: BoxDecoration(
+        color: const Color(0xFF1C1C21),
+        borderRadius: BorderRadius.circular(999),
+        border: Border.all(color: Tone.line),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: .5),
+            blurRadius: 30,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        textDirection: widget.textDirection,
+        children: [
+          Text(
+            widget.message,
+            textDirection: widget.textDirection,
+            style: const TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              color: Tone.ink,
+            ),
+          ),
+          if (widget.actionLabel != null) ...[
+            const SizedBox(width: 10),
+            Pressable(
+              onTap: () {
+                if (_handled) return;
+                _handled = true;
+                widget.onAction?.call();
+                _startExit();
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 7,
+                ),
+                decoration: BoxDecoration(
+                  color: Tone.emberSoft,
+                  borderRadius: BorderRadius.circular(999),
+                ),
+                child: Text(
+                  widget.actionLabel!,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    color: Tone.ember,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
 }
 
 /// iOS-style wheel time picker in a glass sheet.

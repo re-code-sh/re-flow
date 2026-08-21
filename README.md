@@ -156,7 +156,7 @@ dart format --output=none --set-exit-if-changed lib test
 # تحلیل استاتیک
 flutter analyze
 
-# اجرای کل تست‌های خودکار (۸۹ تست)
+# اجرای کل تست‌های خودکار (۹۱ تست)
 flutter test
 ```
 

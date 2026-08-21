@@ -156,7 +156,7 @@ dart format --output=none --set-exit-if-changed lib test
 # Run static analysis
 flutter analyze
 
-# Run unit & widget test suite (89 tests)
+# Run unit & widget test suite (91 tests)
 flutter test
 ```
 
