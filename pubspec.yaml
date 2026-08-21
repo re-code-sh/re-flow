@@ -1,7 +1,7 @@
 name: taknoghte
 description: "تک‌نقطه — سیستم مدیریت تمرکز، انرژی و زمان"
 publish_to: 'none'
-version: 0.0.11+11
+version: 0.0.12+12
 
 environment:
   sdk: ^3.9.0
