@@ -162,6 +162,13 @@ flutter test
 
 ---
 
+## 👥 مشارکت‌کنندگان
+
+- [@re-code-sh](https://github.com/re-code-sh)
+- [@Upgrade-sh](https://github.com/Upgrade-sh)
+
+---
+
 ## 📜 اعتبار و لایسنس
 
 - پروژه اصلی توسعه‌داده‌شده توسط [Mahdi-mortazavi/flow](https://github.com/Mahdi-mortazavi/flow).

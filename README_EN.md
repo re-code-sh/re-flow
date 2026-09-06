@@ -162,6 +162,13 @@ flutter test
 
 ---
 
+## 👥 Contributors
+
+- [@re-code-sh](https://github.com/re-code-sh)
+- [@Upgrade-sh](https://github.com/Upgrade-sh)
+
+---
+
 ## 📜 Credits & License
 
 - Original project by [Mahdi-mortazavi/flow](https://github.com/Mahdi-mortazavi/flow).
